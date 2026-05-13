@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel | Sweet Treats by JR</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: { extend: { colors: { brand: { DEFAULT: '#cb6e4e', dark: '#b45a3b', light: '#fceae2' } } } }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  <style>body { font-family: 'Inter', sans-serif; background: #fef7f0; }</style>
+</head>
+<body class="min-h-screen">
+
+<div class="max-w-5xl mx-auto px-4 py-8">
+  <!-- Header -->
+  <div class="flex flex-wrap justify-between items-center mb-8 gap-4">
+    <div>
+      <h1 style="font-family:'Playfair Display',serif" class="text-3xl font-semibold text-[#4a2a1e]">Admin Panel</h1>
+      <p class="text-sm text-[#9c7b68]">Sweet Treats by.JR — Daftar Pesanan Masuk</p>
+    </div>
+    <div class="flex gap-3 flex-wrap">
+      <button onclick="exportCSV()" class="bg-green-500 hover:bg-green-600 text-white text-sm font-medium px-4 py-2 rounded-full transition">⬇ Export CSV</button>
+      <button onclick="clearOrders()" class="bg-red-100 hover:bg-red-200 text-red-600 text-sm font-medium px-4 py-2 rounded-full transition">🗑 Hapus Semua</button>
+      <a href="index.html" class="bg-brand hover:bg-brand-dark text-white text-sm font-medium px-4 py-2 rounded-full transition">← Kembali ke Toko</a>
+    </div>
+  </div>
+
+  <!-- Stats -->
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8" id="statsRow"></div>
+
+  <!-- Filter -->
+  <div class="flex flex-wrap gap-3 mb-6 items-center">
+    <input id="searchInput" oninput="renderOrders()" type="text" placeholder="Cari nama / produk..." class="border border-[#ffe4d0] rounded-xl px-4 py-2 text-sm focus:outline-none focus:border-brand flex-1 min-w-[180px]">
+    <select id="statusFilter" onchange="renderOrders()" class="border border-[#ffe4d0] rounded-xl px-4 py-2 text-sm focus:outline-none focus:border-brand">
+      <option value="">Semua Status</option>
+      <option value="Baru">Baru</option>
+      <option value="Diproses">Diproses</option>
+      <option value="Selesai">Selesai</option>
+    </select>
+  </div>
+
+  <!-- Orders Table -->
+  <div class="bg-white rounded-3xl shadow-sm border border-[#ffe4d0] overflow-hidden">
+    <div id="ordersContainer"></div>
+  </div>
+</div>
+
+<script>
+  function getOrders() {
+    return JSON.parse(localStorage.getItem('jr_orders') || '[]');
+  }
+
+  function saveOrders(orders) {
+    localStorage.setItem('jr_orders', JSON.stringify(orders));
+  }
+
+  function updateStatus(id, status) {
+    const orders = getOrders();
+    const o = orders.find(o => o.id === id);
+    if (o) o.status = status;
+    saveOrders(orders);
+    renderOrders();
+  }
+
+  function deleteOrder(id) {
+    if (!confirm('Hapus pesanan ini?')) return;
+    saveOrders(getOrders().filter(o => o.id !== id));
+    renderOrders();
+    renderStats();
+  }
+
+  function clearOrders() {
+    if (!confirm('Hapus SEMUA pesanan? Tindakan ini tidak bisa dibatalkan.')) return;
+    localStorage.removeItem('jr_orders');
+    renderOrders();
+    renderStats();
+  }
+
+  const statusColor = {
+    'Baru': 'bg-blue-100 text-blue-700',
+    'Diproses': 'bg-yellow-100 text-yellow-700',
+    'Selesai': 'bg-green-100 text-green-700',
+  };
+
+  function renderOrders() {
+    let orders = getOrders().slice().reverse();
+    const q = document.getElementById('searchInput').value.toLowerCase();
+    const sf = document.getElementById('statusFilter').value;
+
+    if (q) orders = orders.filter(o =>
+      o.name.toLowerCase().includes(q) ||
+      o.items.some(i => i.name.toLowerCase().includes(q))
+    );
+    if (sf) orders = orders.filter(o => o.status === sf);
+
+    const el = document.getElementById('ordersContainer');
+    if (orders.length === 0) {
+      el.innerHTML = '<p class="text-center text-gray-400 py-16">Belum ada pesanan masuk 📭</p>';
+      return;
+    }
+
+    el.innerHTML = orders.map(o => `
+      <div class="border-b border-gray-50 last:border-0 p-5 hover:bg-[#fffbf5] transition">
+        <div class="flex flex-wrap justify-between gap-3 mb-2">
+          <div>
+            <span class="font-semibold text-[#4a2a1e]">${o.name}</span>
+            <span class="text-xs text-gray-400 ml-2">#${String(o.id).slice(-6)}</span>
+          </div>
+          <div class="flex items-center gap-2 flex-wrap">
+            <span class="text-xs px-2.5 py-1 rounded-full font-medium ${statusColor[o.status] || 'bg-gray-100 text-gray-600'}">${o.status}</span>
+            <select onchange="updateStatus(${o.id}, this.value)" class="text-xs border border-gray-200 rounded-lg px-2 py-1 focus:outline-none">
+              <option value="Baru" ${o.status==='Baru'?'selected':''}>Baru</option>
+              <option value="Diproses" ${o.status==='Diproses'?'selected':''}>Diproses</option>
+              <option value="Selesai" ${o.status==='Selesai'?'selected':''}>Selesai</option>
+            </select>
+            <a href="https://wa.me/${o.phone.replace(/\D/g,'').replace(/^0/,'62')}" target="_blank" class="text-xs bg-green-100 hover:bg-green-200 text-green-700 px-3 py-1 rounded-full transition">WA</a>
+            <button onclick="deleteOrder(${o.id})" class="text-xs text-red-400 hover:text-red-600">✕</button>
+          </div>
+        </div>
+        <div class="text-xs text-[#9c7b68] mb-2">📞 ${o.phone} &nbsp;|&nbsp; 📍 ${o.address} &nbsp;|&nbsp; 🕐 ${o.date}</div>
+        <div class="text-xs text-[#6b4c3b] mb-1">${o.items.map(i=>`${i.name} ×${i.qty}`).join(', ')}</div>
+        ${o.note ? `<div class="text-xs text-gray-400 italic">Catatan: ${o.note}</div>` : ''}
+        <div class="text-sm font-bold text-brand mt-2">Total: IDR ${o.total.toLocaleString('id-ID')}</div>
+      </div>
+    `).join('');
+  }
+
+  function renderStats() {
+    const orders = getOrders();
+    const total = orders.reduce((s, o) => s + o.total, 0);
+    const stats = [
+      { label: 'Total Pesanan', value: orders.length, icon: '📦' },
+      { label: 'Pesanan Baru', value: orders.filter(o => o.status === 'Baru').length, icon: '🆕' },
+      { label: 'Selesai', value: orders.filter(o => o.status === 'Selesai').length, icon: '✅' },
+      { label: 'Total Omzet', value: 'IDR ' + total.toLocaleString('id-ID'), icon: '💰' },
+    ];
+    document.getElementById('statsRow').innerHTML = stats.map(s => `
+      <div class="bg-white border border-[#ffe4d0] rounded-2xl p-4 text-center shadow-sm">
+        <div class="text-2xl mb-1">${s.icon}</div>
+        <div class="font-bold text-[#4a2a1e] text-lg">${s.value}</div>
+        <div class="text-xs text-[#9c7b68]">${s.label}</div>
+      </div>
+    `).join('');
+  }
+
+  function exportCSV() {
+    const orders = getOrders();
+    if (!orders.length) { alert('Tidak ada pesanan untuk diekspor.'); return; }
+    const rows = [['ID','Nama','Telepon','Alamat','Produk','Total','Status','Tanggal']];
+    orders.forEach(o => rows.push([
+      o.id, o.name, o.phone, `"${o.address}"`,
+      `"${o.items.map(i=>`${i.name} x${i.qty}`).join(', ')}"`,
+      o.total, o.status, o.date
+    ]));
+    const csv = rows.map(r => r.join(',')).join('\n');
+    const a = document.createElement('a');
+    a.href = 'data:text/csv;charset=utf-8,' + encodeURIComponent(csv);
+    a.download = `pesanan_jr_${Date.now()}.csv`;
+    a.click();
+  }
+
+  renderStats();
+  renderOrders();
+</script>
+</body>
+</html>

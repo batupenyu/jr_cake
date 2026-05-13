@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Roll Cake | Sweet Treats by JR</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: { DEFAULT: '#cb6e4e', dark: '#b45a3b', light: '#fceae2', cream: '#fef7f0' },
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['"Playfair Display"', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    body { background-color: #fef7f0; }
+    body::before {
+      content: "";
+      position: fixed; inset: 0;
+      background-image: radial-gradient(#f7e3d4 1.5px, transparent 1.5px);
+      background-size: 32px 32px;
+      opacity: 0.4;
+      pointer-events: none;
+      z-index: -1;
+    }
+    .font-serif { font-family: 'Playfair Display', serif; }
+    .scrollbar-hide::-webkit-scrollbar { display: none; }
+  </style>
+</head>
+<body class="font-sans text-[#3e2a2a]">
+
+<!-- ===== NAVBAR ===== -->
+<div class="max-w-6xl mx-auto px-6">
+  <nav class="flex flex-wrap justify-between items-center py-6 border-b border-[#ffe1cf] gap-4">
+    <div class="flex items-baseline gap-2 flex-wrap">
+      <span class="font-serif text-3xl font-semibold text-brand">Roll Cake</span>
+      <span class="bg-[#ffede3] text-[#b45a3b] text-xs font-medium px-3 py-1 rounded-full">Sweet Treats by.JR</span>
+    </div>
+    <div class="flex gap-6 items-center flex-wrap">
+      <a href="#" onclick="scrollTop(event)" class="font-medium text-[#5f3c2c] hover:text-brand text-sm transition">Beranda</a>
+      <a href="#rolls" onclick="smoothScroll(event,'rolls')" class="font-medium text-[#5f3c2c] hover:text-brand text-sm transition">Menu</a>
+      <a href="#about" onclick="smoothScroll(event,'about')" class="font-medium text-[#5f3c2c] hover:text-brand text-sm transition">Cerita Kami</a>
+      <button onclick="openCart()" class="bg-brand hover:bg-brand-dark text-white text-sm font-semibold px-5 py-2 rounded-full transition shadow-md relative">
+        Keranjang <span id="cartBadge" class="hidden absolute -top-1.5 -right-1.5 bg-red-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">0</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="flex flex-wrap items-center justify-between py-12 gap-10">
+    <div class="flex-[1.2] min-w-[280px]">
+      <h1 class="font-serif text-5xl md:text-6xl font-semibold leading-tight text-[#4a2a1e] mb-5">
+        Lembut, Fluffy & <span class="text-brand">Menggugah Selera</span> Roll Cake
+      </h1>
+      <p class="text-[#6b4c3b] text-base leading-relaxed mb-8 max-w-md">
+        Dibuat dengan tangan setiap hari menggunakan bahan-bahan premium. Rasakan kelezatan roll cake gaya Jepang asli yang dibuat dengan penuh cinta oleh Sweet Treats by.JR.
+      </p>
+      <div class="flex gap-8 mb-9">
+        <div><div class="text-3xl font-bold text-brand">15+</div><div class="text-xs font-medium text-[#9c7b68]">Varian Rasa</div></div>
+        <div><div class="text-3xl font-bold text-brand">2k+</div><div class="text-xs font-medium text-[#9c7b68]">Pelanggan Puas</div></div>
+        <div><div class="text-3xl font-bold text-brand">100%</div><div class="text-xs font-medium text-[#9c7b68]">Dipanggang Segar</div></div>
+      </div>
+      <div class="flex gap-4 flex-wrap">
+        <button onclick="smoothScroll(event,'rolls')" class="bg-brand hover:bg-brand-dark text-white font-semibold px-8 py-3.5 rounded-full transition shadow-lg">
+          <i class="fas fa-shopping-bag mr-2"></i>Pesan Sekarang
+        </button>
+        <button onclick="smoothScroll(event,'rolls')" class="border border-brand text-brand hover:bg-brand-light font-semibold px-7 py-3 rounded-full transition">
+          Lihat Menu →
+        </button>
+      </div>
+    </div>
+    <div class="flex-1 flex justify-center min-w-[260px]">
+      <div class="bg-[#fffbf5] border border-[#ffecd9] rounded-[3rem] p-6 shadow-2xl text-center w-full max-w-[340px] hover:-translate-y-2 transition-transform">
+        <img src="cake.jpeg" alt="Signature Roll Cake" class="w-full rounded-[1.5rem] object-cover max-h-52 mb-3">
+        <h3 class="font-serif text-2xl font-semibold text-[#4a2b1e]">Signature Roll</h3>
+        <p class="text-sm text-[#b1866b] my-2">Vanilla Chantilly & Stroberi Segar</p>
+        <div class="text-2xl font-bold text-brand mt-2">IDR 50.000 <span class="text-sm font-normal text-[#b1866b]">/ roll</span></div>
+        <div class="mt-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MENU / PRODUCTS ===== -->
+  <section class="py-12" id="rolls">
+    <h2 class="font-serif text-4xl font-semibold text-center text-[#4a2a1e] mb-3">Roll Cake Andalan Kami</h2>
+    <p class="text-center text-[#9c7b68] max-w-lg mx-auto mb-12">Kebahagiaan berlapis krim yang lezat — dipanggang segar setiap pagi.</p>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+
+      <!-- Strawberry Dream -->
+      <div class="bg-white border border-[#ffe4d0] rounded-[2rem] p-6 text-center hover:-translate-y-1.5 hover:shadow-xl transition-all">
+        <img src="Strawberry Dream.jpeg" alt="Strawberry Dream" class="w-full rounded-2xl object-cover max-h-44 mb-4">
+        <div class="font-serif text-xl font-semibold text-[#4a2a1e] mb-2">Strawberry Dream</div>
+        <div class="text-xs text-[#9f7c68] mb-4">Stroberi segar & krim kocok, sponge super lembut.</div>
+        <div class="text-xl font-bold text-brand mb-4">IDR 50.000</div>
+        <button onclick="addToCart('Strawberry Dream', 45000)" class="bg-brand-light hover:bg-brand hover:text-white text-brand font-semibold px-6 py-2 rounded-full transition text-sm">Pesan →</button>
+      </div>
+
+      <!-- Dark Chocolate Truffle -->
+      <div class="bg-white border border-[#ffe4d0] rounded-[2rem] p-6 text-center hover:-translate-y-1.5 hover:shadow-xl transition-all">
+        <div class="text-6xl mb-4">🍫</div>
+        <div class="font-serif text-xl font-semibold text-[#4a2a1e] mb-2">Dark Chocolate Truffle</div>
+        <div class="text-xs text-[#9f7c68] mb-4">Ganache cokelat Belgia kaya, sponge kakao gelap.</div>
+        <div class="text-xl font-bold text-brand mb-4">IDR 48.000</div>
+        <button onclick="addToCart('Dark Chocolate Truffle', 48000)" class="bg-brand-light hover:bg-brand hover:text-white text-brand font-semibold px-6 py-2 rounded-full transition text-sm">Pesan →</button>
+      </div>
+
+      <!-- Matcha Azuki -->
+      <div class="bg-white border border-[#ffe4d0] rounded-[2rem] p-6 text-center hover:-translate-y-1.5 hover:shadow-xl transition-all">
+        <div class="text-6xl mb-4">🍵</div>
+        <div class="font-serif text-xl font-semibold text-[#4a2a1e] mb-2">Matcha Azuki</div>
+        <div class="text-xs text-[#9f7c68] mb-4">Krim matcha premium + kacang merah manis & mochi.</div>
+        <div class="text-xl font-bold text-brand mb-4">IDR 47.000</div>
+        <button onclick="addToCart('Matcha Azuki', 47000)" class="bg-brand-light hover:bg-brand hover:text-white text-brand font-semibold px-6 py-2 rounded-full transition text-sm">Pesan →</button>
+      </div>
+
+      <!-- Mango Passion -->
+      <div class="bg-white border border-[#ffe4d0] rounded-[2rem] p-6 text-center hover:-translate-y-1.5 hover:shadow-xl transition-all">
+        <div class="text-6xl mb-4">🥭</div>
+        <div class="font-serif text-xl font-semibold text-[#4a2a1e] mb-2">Mango Passion</div>
+        <div class="text-xs text-[#9f7c68] mb-4">Mousse mangga tropis & glasir markisa.</div>
+        <div class="text-xl font-bold text-brand mb-4">IDR 46.000</div>
+        <button onclick="addToCart('Mango Passion', 46000)" class="bg-brand-light hover:bg-brand hover:text-white text-brand font-semibold px-6 py-2 rounded-full transition text-sm">Pesan →</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section id="about" class="bg-[#fff3ea] rounded-[3rem] p-10 md:p-14 my-16">
+    <div class="flex flex-wrap gap-12 items-center justify-between">
+      <div class="flex-1 min-w-[260px]">
+        <h2 class="font-serif text-3xl font-semibold text-[#4a2a1e] mb-5">Sweet Treats <br>by.JR</h2>
+        <p class="text-[#6b4c3b] leading-relaxed mb-4">Passion JR dimulai dari dapur rumah kecil — membuat roll cake dengan resep yang diwariskan dan disempurnakan selama bertahun-tahun. Setiap roll adalah perpaduan tekstur, rasa manis, dan seni.</p>
+        <p class="text-[#6b4c3b] leading-relaxed mb-4">"Kami memanggang kebahagiaan di setiap gulungan." Dari rasa klasik hingga signature kreatif, setiap roll cake dibuat untuk menghadirkan senyuman.</p>
+        <div class="italic font-medium text-brand-dark">— Ullfah Kharisma., Pendiri & Pastry Chef</div>
+      </div>
+      <div class="flex-[0.8] min-w-[220px] bg-[#ffdfce] rounded-[2.5rem] p-8 text-center">
+        <div class="text-6xl mb-3">🧡</div>
+        <p class="font-medium text-[#6b4c3b] mt-4">Baked with love 🧡<br>Jakarta • Bali • Surabaya</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIALS ===== -->
+  <section class="pb-16">
+    <h2 class="font-serif text-4xl font-semibold text-center text-[#4a2a1e] mb-3">Kata-Kata Manis</h2>
+    <p class="text-center text-[#9c7b68] mb-10">Apa yang dikatakan para pecinta Roll Cake kami</p>
+    <div class="flex flex-wrap gap-6 justify-center">
+      <div class="bg-white border border-[#f7e0d0] rounded-3xl p-7 max-w-xs shadow-sm">
+        <i class="fas fa-quote-left text-[#e7c9b8] text-2xl mb-3"></i>
+        <p class="text-sm text-[#5c3f2f] leading-relaxed">"Roll cake stroberinya surgawi! Lembut, tidak terlalu manis, dan krimnya sangat ringan."</p>
+        <div class="font-bold text-brand mt-4">— Michelle T.</div>
+      </div>
+      <div class="bg-white border border-[#f7e0d0] rounded-3xl p-7 max-w-xs shadow-sm">
+        <i class="fas fa-quote-left text-[#e7c9b8] text-2xl mb-3"></i>
+        <p class="text-sm text-[#5c3f2f] leading-relaxed">"Roll Matcha JR adalah kesempurnaan mutlak. Keseimbangan antara matcha dan kacang merah sangat pas."</p>
+        <div class="font-bold text-brand mt-4">— Kevin L.</div>
+      </div>
+      <div class="bg-white border border-[#f7e0d0] rounded-3xl p-7 max-w-xs shadow-sm">
+        <i class="fas fa-quote-left text-[#e7c9b8] text-2xl mb-3"></i>
+        <p class="text-sm text-[#5c3f2f] leading-relaxed">"Kemasan cantik, pengiriman cepat, dan roll chocolate truffle-nya — wow! Seluruh keluarga saya suka."</p>
+        <div class="font-bold text-brand mt-4">— Dina S.</div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer class="border-t border-[#ffe1cf] py-10 mt-8 text-center">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="font-serif text-2xl text-brand mb-4">Roll Cake by Sweet Treats.JR</div>
+    <div class="flex justify-center gap-5 mb-5 text-[#b1866b] text-xl">
+      <a href="#" class="hover:text-brand transition"><i class="fab fa-instagram"></i></a>
+      <a href="#" class="hover:text-brand transition"><i class="fab fa-whatsapp"></i></a>
+      <a href="#" class="hover:text-brand transition"><i class="fab fa-tiktok"></i></a>
+    </div>
+    <p class="text-xs text-[#b99a86]">© 2026 Sweet Treats by.JR — Roll cake buatan tangan segar untuk setiap momen manis.</p>
+  </div>
+</footer>
+
+<!-- ===== FLOATING CART BUTTON ===== -->
+<button onclick="openCart()" class="fixed bottom-6 right-6 bg-brand hover:bg-brand-dark text-white w-14 h-14 rounded-full shadow-xl flex items-center justify-center text-2xl transition z-50">
+  <i class="fas fa-shopping-bag"></i>
+</button>
+
+<!-- ===== TOAST ===== -->
+<div id="toast" class="fixed bottom-28 right-6 bg-[#2c2c2c] text-[#fff3ea] px-5 py-3 rounded-full text-sm font-medium shadow-lg opacity-0 pointer-events-none transition-all duration-300 z-50"></div>
+
+<!-- ===== CART MODAL ===== -->
+<div id="cartModal" class="fixed inset-0 bg-black/50 z-50 hidden flex items-end md:items-center justify-center p-4">
+  <div class="bg-white rounded-3xl w-full max-w-md max-h-[90vh] flex flex-col shadow-2xl">
+    <div class="flex justify-between items-center p-6 border-b border-gray-100">
+      <h3 class="font-serif text-2xl font-semibold text-[#4a2a1e]">Keranjang Pesanan</h3>
+      <button onclick="closeCart()" class="text-gray-400 hover:text-gray-600 text-2xl leading-none">&times;</button>
+    </div>
+    <div id="cartItems" class="flex-1 overflow-y-auto p-6 space-y-3"></div>
+    <div class="p-6 border-t border-gray-100">
+      <div class="flex justify-between font-bold text-lg text-[#4a2a1e] mb-4">
+        <span>Total</span>
+        <span id="cartTotal">IDR 0</span>
+      </div>
+      <button onclick="openCheckout()" class="w-full bg-brand hover:bg-brand-dark text-white font-semibold py-3.5 rounded-full transition">
+        Lanjut ke Checkout →
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== CHECKOUT MODAL ===== -->
+<div id="checkoutModal" class="fixed inset-0 bg-black/50 z-50 hidden flex items-end md:items-center justify-center p-4">
+  <div class="bg-white rounded-3xl w-full max-w-md shadow-2xl">
+    <div class="flex justify-between items-center p-6 border-b border-gray-100">
+      <h3 class="font-serif text-2xl font-semibold text-[#4a2a1e]">Detail Pesanan</h3>
+      <button onclick="closeCheckout()" class="text-gray-400 hover:text-gray-600 text-2xl leading-none">&times;</button>
+    </div>
+    <form onsubmit="submitOrder(event)" class="p-6 space-y-4">
+      <div>
+        <label class="block text-sm font-medium text-[#5f3c2c] mb-1">Nama Lengkap</label>
+        <input id="custName" type="text" required placeholder="Nama kamu" class="w-full border border-[#ffe4d0] rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-brand">
+      </div>
+      <div>
+        <label class="block text-sm font-medium text-[#5f3c2c] mb-1">Nomor WhatsApp</label>
+        <input id="custPhone" type="tel" required placeholder="08xxxxxxxxxx" class="w-full border border-[#ffe4d0] rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-brand">
+      </div>
+      <div>
+        <label class="block text-sm font-medium text-[#5f3c2c] mb-1">Alamat Pengiriman</label>
+        <textarea id="custAddress" required rows="2" placeholder="Alamat lengkap..." class="w-full border border-[#ffe4d0] rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-brand resize-none"></textarea>
+      </div>
+      <div>
+        <label class="block text-sm font-medium text-[#5f3c2c] mb-1">Catatan (opsional)</label>
+        <input id="custNote" type="text" placeholder="Misal: tanpa gula, dll." class="w-full border border-[#ffe4d0] rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-brand">
+      </div>
+      <button type="submit" class="w-full bg-green-500 hover:bg-green-600 text-white font-semibold py-3.5 rounded-full transition flex items-center justify-center gap-2">
+        <i class="fab fa-whatsapp text-lg"></i> Kirim Pesanan via WhatsApp
+      </button>
+    </form>
+  </div>
+</div>
+
+<script>
+  // ===== CONFIG =====
+  const WA_NUMBER = '6281949376164'; // Ganti dengan nomor WA UMKM
+
+  // ===== CART STATE =====
+  let cart = JSON.parse(localStorage.getItem('jr_cart') || '[]');
+
+  function saveCart() {
+    localStorage.setItem('jr_cart', JSON.stringify(cart));
+    updateBadge();
+  }
+
+  function updateBadge() {
+    const total = cart.reduce((s, i) => s + i.qty, 0);
+    const badge = document.getElementById('cartBadge');
+    badge.textContent = total;
+    badge.classList.toggle('hidden', total === 0);
+  }
+
+  function addToCart(name, price) {
+    const existing = cart.find(i => i.name === name);
+    if (existing) existing.qty++;
+    else cart.push({ name, price, qty: 1 });
+    saveCart();
+    showToast(`🍰 ${name} ditambahkan!`);
+  }
+
+  function removeFromCart(name) {
+    cart = cart.filter(i => i.name !== name);
+    saveCart();
+    renderCart();
+  }
+
+  function changeQty(name, delta) {
+    const item = cart.find(i => i.name === name);
+    if (!item) return;
+    item.qty += delta;
+    if (item.qty <= 0) cart = cart.filter(i => i.name !== name);
+    saveCart();
+    renderCart();
+  }
+
+  // ===== CART UI =====
+  function renderCart() {
+    const el = document.getElementById('cartItems');
+    if (cart.length === 0) {
+      el.innerHTML = '<p class="text-center text-gray-400 py-8">Keranjang kosong 🛒</p>';
+      document.getElementById('cartTotal').textContent = 'IDR 0';
+      return;
+    }
+    el.innerHTML = cart.map(i => `
+      <div class="flex items-center justify-between gap-3">
+        <div class="flex-1">
+          <div class="font-medium text-sm text-[#4a2a1e]">${i.name}</div>
+          <div class="text-xs text-[#9c7b68]">IDR ${i.price.toLocaleString('id-ID')}</div>
+        </div>
+        <div class="flex items-center gap-2">
+          <button onclick="changeQty('${i.name}',-1)" class="w-7 h-7 rounded-full bg-gray-100 hover:bg-gray-200 text-sm font-bold">−</button>
+          <span class="text-sm font-semibold w-4 text-center">${i.qty}</span>
+          <button onclick="changeQty('${i.name}',1)" class="w-7 h-7 rounded-full bg-gray-100 hover:bg-gray-200 text-sm font-bold">+</button>
+        </div>
+        <button onclick="removeFromCart('${i.name}')" class="text-red-400 hover:text-red-600 text-lg leading-none ml-1">&times;</button>
+      </div>
+    `).join('');
+    const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
+    document.getElementById('cartTotal').textContent = 'IDR ' + total.toLocaleString('id-ID');
+  }
+
+  function openCart() { renderCart(); document.getElementById('cartModal').classList.remove('hidden'); }
+  function closeCart() { document.getElementById('cartModal').classList.add('hidden'); }
+  function openCheckout() { closeCart(); document.getElementById('checkoutModal').classList.remove('hidden'); }
+  function closeCheckout() { document.getElementById('checkoutModal').classList.add('hidden'); }
+
+  // ===== CHECKOUT & WHATSAPP =====
+  function submitOrder(e) {
+    e.preventDefault();
+    if (cart.length === 0) { showToast('Keranjang masih kosong!'); return; }
+
+    const name = document.getElementById('custName').value.trim();
+    const phone = document.getElementById('custPhone').value.trim();
+    const address = document.getElementById('custAddress').value.trim();
+    const note = document.getElementById('custNote').value.trim();
+    const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
+    const orderDate = new Date().toLocaleString('id-ID');
+
+    // Build WA message
+    const items = cart.map(i => `  - ${i.name} x${i.qty} = IDR ${(i.price * i.qty).toLocaleString('id-ID')}`).join('\n');
+    const msg = `🍰 *PESANAN BARU - Sweet Treats by.JR*\n\n*Nama:* ${name}\n*No. WA:* ${phone}\n*Alamat:* ${address}\n${note ? `*Catatan:* ${note}\n` : ''}\n*Pesanan:*\n${items}\n\n*Total: IDR ${total.toLocaleString('id-ID')}*\n\n_Dipesan pada: ${orderDate}_`;
+
+    // Save to localStorage
+    const orders = JSON.parse(localStorage.getItem('jr_orders') || '[]');
+    orders.push({ id: Date.now(), name, phone, address, note, items: [...cart], total, date: orderDate, status: 'Baru' });
+    localStorage.setItem('jr_orders', JSON.stringify(orders));
+
+    // Clear cart
+    cart = [];
+    saveCart();
+    closeCheckout();
+
+    // Open WhatsApp
+    window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
+    showToast('✅ Pesanan dikirim via WhatsApp!');
+  }
+
+  // ===== TOAST =====
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.style.opacity = '1';
+    t.style.bottom = '7.5rem';
+    setTimeout(() => { t.style.opacity = '0'; t.style.bottom = '7rem'; }, 2500);
+  }
+
+  // ===== NAV HELPERS =====
+  function smoothScroll(e, id) { e.preventDefault(); document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' }); }
+  function scrollTop(e) { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+
+  // Init badge
+  updateBadge();
+</script>
+</body>
+</html>
