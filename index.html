@@ -22,6 +22,8 @@
     }
   </script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="alternate icon" type="image/png" sizes="32x32" href="/assets/favicon.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     body { background-color: #fef7f0; }
@@ -42,12 +44,11 @@
 
 <!-- ===== NAVBAR ===== -->
 <div class="max-w-6xl mx-auto px-6">
-  <nav class="flex flex-wrap justify-between items-center py-6 border-b border-[#ffe1cf] gap-4">
-    <div class="flex items-baseline gap-2 flex-wrap">
-      <span class="font-serif text-3xl font-semibold text-brand">Roll Cake</span>
-      <span class="bg-[#ffede3] text-[#b45a3b] text-xs font-medium px-3 py-1 rounded-full">Sweet Treats by.JR</span>
-    </div>
-     <div class="flex gap-6 items-center flex-wrap">
+<nav class="flex flex-wrap justify-between items-center py-6 border-b border-[#ffe1cf] gap-4">
+    <a href="#" class="flex items-center gap-2 flex-wrap">
+      <img src="/assets/logo.svg" alt="Roll Cake by Sweet Treats by JR" class="h-10 md:h-12 w-auto">
+    </a>
+    <div class="flex gap-6 items-center flex-wrap">
        <a href="#" onclick="scrollTop(event)" class="font-medium text-[#5f3c2c] hover:text-brand text-sm transition">Beranda</a>
        <a href="#rolls" onclick="smoothScroll(event,'rolls')" class="font-medium text-[#5f3c2c] hover:text-brand text-sm transition">Menu</a>
        <a href="#about" onclick="smoothScroll(event,'about')" class="font-medium text-[#5f3c2c] hover:text-brand text-sm transition">Cerita Kami</a>
