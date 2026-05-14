@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
   <meta name="description" content="Roll cake lembut dengan berbagai rasa. Strawberry, coklat, matcha. Bisa order online untuk JABODETABEK. Sweet Treats by JR.">
-  <a href="https://wa.me/6281949376164?text=Halo%20JR%2C%20saya%20mau%20order%20roll%20cake" class="btn-primary">Order via WA</a>
   <title>Roll Cake | Sweet Treats by JR</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -48,14 +47,15 @@
       <span class="font-serif text-3xl font-semibold text-brand">Roll Cake</span>
       <span class="bg-[#ffede3] text-[#b45a3b] text-xs font-medium px-3 py-1 rounded-full">Sweet Treats by.JR</span>
     </div>
-    <div class="flex gap-6 items-center flex-wrap">
-      <a href="#" onclick="scrollTop(event)" class="font-medium text-[#5f3c2c] hover:text-brand text-sm transition">Beranda</a>
-      <a href="#rolls" onclick="smoothScroll(event,'rolls')" class="font-medium text-[#5f3c2c] hover:text-brand text-sm transition">Menu</a>
-      <a href="#about" onclick="smoothScroll(event,'about')" class="font-medium text-[#5f3c2c] hover:text-brand text-sm transition">Cerita Kami</a>
-      <button onclick="openCart()" class="bg-brand hover:bg-brand-dark text-white text-sm font-semibold px-5 py-2 rounded-full transition shadow-md relative">
-        Keranjang <span id="cartBadge" class="hidden absolute -top-1.5 -right-1.5 bg-red-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">0</span>
-      </button>
-    </div>
+     <div class="flex gap-6 items-center flex-wrap">
+       <a href="#" onclick="scrollTop(event)" class="font-medium text-[#5f3c2c] hover:text-brand text-sm transition">Beranda</a>
+       <a href="#rolls" onclick="smoothScroll(event,'rolls')" class="font-medium text-[#5f3c2c] hover:text-brand text-sm transition">Menu</a>
+       <a href="#about" onclick="smoothScroll(event,'about')" class="font-medium text-[#5f3c2c] hover:text-brand text-sm transition">Cerita Kami</a>
+       <a href="https://wa.me/6281949376164?text=Halo%20JR%2C%20saya%20mau%20order%20roll%20cake" class="font-sans bg-brand hover:bg-brand-dark text-white font-semibold px-5 py-2 rounded-full transition shadow-md text-sm">Order via WA</a>
+       <button onclick="openCart()" class="bg-brand hover:bg-brand-dark text-white text-sm font-semibold px-5 py-2 rounded-full transition shadow-md relative">
+         Keranjang <span id="cartBadge" class="hidden absolute -top-1.5 -right-1.5 bg-red-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">0</span>
+       </button>
+     </div>
   </nav>
 
   <!-- ===== HERO ===== -->
@@ -153,29 +153,65 @@
     </div>
   </section>
 
-  <!-- ===== TESTIMONIALS ===== -->
-  <section class="pb-16">
-    <h2 class="font-serif text-4xl font-semibold text-center text-[#4a2a1e] mb-3">Kata-Kata Manis</h2>
-    <p class="text-center text-[#9c7b68] mb-10">Apa yang dikatakan para pecinta Roll Cake kami</p>
-    <div class="flex flex-wrap gap-6 justify-center">
-      <div class="bg-white border border-[#f7e0d0] rounded-3xl p-7 max-w-xs shadow-sm">
-        <i class="fas fa-quote-left text-[#e7c9b8] text-2xl mb-3"></i>
-        <p class="text-sm text-[#5c3f2f] leading-relaxed">"Roll cake stroberinya surgawi! Lembut, tidak terlalu manis, dan krimnya sangat ringan."</p>
-        <div class="font-bold text-brand mt-4">— Michelle T.</div>
-      </div>
-      <div class="bg-white border border-[#f7e0d0] rounded-3xl p-7 max-w-xs shadow-sm">
-        <i class="fas fa-quote-left text-[#e7c9b8] text-2xl mb-3"></i>
-        <p class="text-sm text-[#5c3f2f] leading-relaxed">"Roll Matcha JR adalah kesempurnaan mutlak. Keseimbangan antara matcha dan kacang merah sangat pas."</p>
-        <div class="font-bold text-brand mt-4">— Kevin L.</div>
-      </div>
-      <div class="bg-white border border-[#f7e0d0] rounded-3xl p-7 max-w-xs shadow-sm">
-        <i class="fas fa-quote-left text-[#e7c9b8] text-2xl mb-3"></i>
-        <p class="text-sm text-[#5c3f2f] leading-relaxed">"Kemasan cantik, pengiriman cepat, dan roll chocolate truffle-nya — wow! Seluruh keluarga saya suka."</p>
-        <div class="font-bold text-brand mt-4">— Dina S.</div>
-      </div>
-    </div>
-  </section>
-</div>
+   <!-- ===== TESTIMONIALS ===== -->
+   <section class="pb-16">
+     <h2 class="font-serif text-4xl font-semibold text-center text-[#4a2a1e] mb-3">Kata-Kata Manis</h2>
+     <p class="text-center text-[#9c7b68] mb-10">Apa yang dikatakan para pecinta Roll Cake kami</p>
+     <div class="flex flex-wrap gap-6 justify-center">
+       <div class="bg-white border border-[#f7e0d0] rounded-3xl p-7 max-w-xs shadow-sm">
+         <i class="fas fa-quote-left text-[#e7c9b8] text-2xl mb-3"></i>
+         <p class="text-sm text-[#5c3f2f] leading-relaxed">"Roll cake stroberinya surgawi! Lembut, tidak troppo manis, dan krimnya sangat ringan."</p>
+         <div class="font-bold text-brand mt-4">— Michelle T.</div>
+       </div>
+       <div class="bg-white border border-[#f7e0d0] rounded-3xl p-7 max-w-xs shadow-sm">
+         <i class="fas fa-quote-left text-[#e7c9b8] text-2xl mb-3"></i>
+         <p class="text-sm text-[#5c3f2f] leading-relaxed">"Roll Matcha JR adalah kesempurnaan mutlak. Keseimbangan antara matcha dan kacang merah sangat pas."</p>
+         <div class="font-bold text-brand mt-4">— Kevin L.</div>
+       </div>
+       <div class="bg-white border border-[#f7e0d0] rounded-3xl p-7 max-w-xs shadow-sm">
+         <i class="fas fa-quote-left text-[#e7c9b8] text-2xl mb-3"></i>
+         <p class="text-sm text-[#5c3f2f] leading-relaxed">"Kemasan cantik, pengiriman cepat, dan roll chocolate truffle-nya — wow! Seluruh keluarga saya suka."</p>
+         <div class="font-bold text-brand mt-4">— Dina S.</div>
+       </div>
+     </div>
+   </section>
+
+   <!-- ===== ORDER FORM ===== -->
+   <section id="order" class="py-12">
+     <div class="max-w-2xl mx-auto">
+       <h2 class="font-serif text-4xl font-semibold text-center text-[#4a2a1e] mb-3">Form Pemesanan</h2>
+       <p class="text-center text-[#9c7b68] mb-8">Isi form di bawah ini dan kami akan menghubungi Anda untuk konfirmasi</p>
+       
+       <form id="orderForm" class="bg-white border border-[#ffe4d0] rounded-3xl p-8 space-y-5 shadow-lg">
+         <div>
+           <label class="block text-sm font-medium text-[#5f3c2c] mb-1.5">Nama Lengkap</label>
+           <input id="formName" type="text" required placeholder="Nama kamu" class="w-full border border-[#ffe4d0] rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand-light/50">
+         </div>
+         <div>
+           <label class="block text-sm font-medium text-[#5f3c2c] mb-1.5">Nomor WhatsApp</label>
+           <input id="formPhone" type="tel" required placeholder="08xxxxxxxxxx" class="w-full border border-[#ffe4d0] rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand-light/50">
+         </div>
+         <div>
+           <label class="block text-sm font-medium text-[#5f3c2c] mb-1.5">Alamat Pengiriman</label>
+           <textarea id="formAddress" required rows="2" placeholder="Alamat lengkap..." class="w-full border border-[#ffe4d0] rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand-light/50 resize-none"></textarea>
+         </div>
+         <div>
+           <label class="block text-sm font-medium text-[#5f3c2c] mb-1.5">Catatan (opsional)</label>
+           <input id="formNote" type="text" placeholder="Misal: tanpa gula, dll." class="w-full border border-[#ffe4d0] rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand-light/50">
+         </div>
+         <div>
+           <label class="block text-sm font-medium text-[#5f3c2c] mb-1.5">Pesanan</label>
+           <textarea id="formItems" required rows="4" placeholder="Contoh:&#10;Strawberry Dream x2 = IDR 100.000&#10;Matcha Azuki x1 = IDR 47.000" class="w-full border border-[#ffe4d0] rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand-light/50 resize-none font-mono text-xs"></textarea>
+           <p class="text-xs text-[#b1866b] mt-1">Format: Nama produk x jumlah = subtotal (gunakan tombol "Keranjang" di atas untuk mengisi otomatis)</p>
+         </div>
+         <button type="submit" class="w-full bg-green-500 hover:bg-green-600 text-white font-semibold py-3.5 rounded-full transition flex items-center justify-center gap-2">
+           <i class="fas fa-paper-plane text-lg"></i> Kirim Pesanan
+         </button>
+       </form>
+       <p id="formStatus" class="text-center mt-4 text-sm hidden"></p>
+     </div>
+   </section>
+ </div>
 
 <!-- ===== FOOTER ===== -->
 <footer class="border-t border-[#ffe1cf] py-10 mt-8 text-center">
@@ -250,11 +286,12 @@
 </div>
 
 <script>
-  // ===== CONFIG =====
-  const WA_NUMBER = '6281949376164'; // Ganti dengan nomor WA UMKM
+   // ===== CONFIG =====
+   const WA_NUMBER = '6281949376164'; // Ganti dengan nomor WA UMKM
+   const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw7LwFU2rrN8c1dN3hUK6IK_v5k5eNr-V7qK7MT5gqTbxc7VgSdJAijWL3oKlxXdZzLgg/exec';
 
-  // ===== CART STATE =====
-  let cart = JSON.parse(localStorage.getItem('jr_cart') || '[]');
+   // ===== CART STATE =====
+   let cart = JSON.parse(localStorage.getItem('jr_cart') || '[]');
 
   function saveCart() {
     localStorage.setItem('jr_cart', JSON.stringify(cart));
@@ -292,66 +329,135 @@
   }
 
   // ===== CART UI =====
-  function renderCart() {
-    const el = document.getElementById('cartItems');
-    if (cart.length === 0) {
-      el.innerHTML = '<p class="text-center text-gray-400 py-8">Keranjang kosong 🛒</p>';
-      document.getElementById('cartTotal').textContent = 'IDR 0';
-      return;
-    }
-    el.innerHTML = cart.map(i => `
-      <div class="flex items-center justify-between gap-3">
-        <div class="flex-1">
-          <div class="font-medium text-sm text-[#4a2a1e]">${i.name}</div>
-          <div class="text-xs text-[#9c7b68]">IDR ${i.price.toLocaleString('id-ID')}</div>
-        </div>
-        <div class="flex items-center gap-2">
-          <button onclick="changeQty('${i.name}',-1)" class="w-7 h-7 rounded-full bg-gray-100 hover:bg-gray-200 text-sm font-bold">−</button>
-          <span class="text-sm font-semibold w-4 text-center">${i.qty}</span>
-          <button onclick="changeQty('${i.name}',1)" class="w-7 h-7 rounded-full bg-gray-100 hover:bg-gray-200 text-sm font-bold">+</button>
-        </div>
-        <button onclick="removeFromCart('${i.name}')" class="text-red-400 hover:text-red-600 text-lg leading-none ml-1">&times;</button>
-      </div>
-    `).join('');
-    const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
-    document.getElementById('cartTotal').textContent = 'IDR ' + total.toLocaleString('id-ID');
-  }
+   function renderCart() {
+     const el = document.getElementById('cartItems');
+     if (cart.length === 0) {
+       el.innerHTML = '<p class="text-center text-gray-400 py-8">Keranjang kosong 🛒</p>';
+       document.getElementById('cartTotal').textContent = 'IDR 0';
+       return;
+     }
+     el.innerHTML = cart.map(i => `
+       <div class="flex items-center justify-between gap-3">
+         <div class="flex-1">
+           <div class="font-medium text-sm text-[#4a2a1e]">${i.name}</div>
+           <div class="text-xs text-[#9c7b68]">IDR ${i.price.toLocaleString('id-ID')}</div>
+         </div>
+         <div class="flex items-center gap-2">
+           <button onclick="changeQty('${i.name}',-1)" class="w-7 h-7 rounded-full bg-gray-100 hover:bg-gray-200 text-sm font-bold">−</button>
+           <span class="text-sm font-semibold w-4 text-center">${i.qty}</span>
+           <button onclick="changeQty('${i.name}',1)" class="w-7 h-7 rounded-full bg-gray-100 hover:bg-gray-200 text-sm font-bold">+</button>
+         </div>
+         <button onclick="removeFromCart('${i.name}')" class="text-red-400 hover:text-red-600 text-lg leading-none ml-1">&times;</button>
+       </div>
+     `).join('');
+     const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
+     document.getElementById('cartTotal').textContent = 'IDR ' + total.toLocaleString('id-ID');
+     
+     // Sync ke form order
+     syncOrderForm();
+   }
 
-  function openCart() { renderCart(); document.getElementById('cartModal').classList.remove('hidden'); }
-  function closeCart() { document.getElementById('cartModal').classList.add('hidden'); }
-  function openCheckout() { closeCart(); document.getElementById('checkoutModal').classList.remove('hidden'); }
-  function closeCheckout() { document.getElementById('checkoutModal').classList.add('hidden'); }
+   function openCart() { renderCart(); document.getElementById('cartModal').classList.remove('hidden'); }
+   function closeCart() { document.getElementById('cartModal').classList.add('hidden'); }
+   function openCheckout() { closeCart(); document.getElementById('checkoutModal').classList.remove('hidden'); }
+   function closeCheckout() { document.getElementById('checkoutModal').classList.add('hidden'); }
 
-  // ===== CHECKOUT & WHATSAPP =====
-  function submitOrder(e) {
-    e.preventDefault();
-    if (cart.length === 0) { showToast('Keranjang masih kosong!'); return; }
+   // ===== SYNC ORDER FORM =====
+   function syncOrderForm() {
+     const itemsText = cart.map(i => `${i.name} x${i.qty} = IDR ${(i.price * i.qty).toLocaleString('id-ID')}`).join('\n');
+     document.getElementById('formItems').value = itemsText;
+   }
 
-    const name = document.getElementById('custName').value.trim();
-    const phone = document.getElementById('custPhone').value.trim();
-    const address = document.getElementById('custAddress').value.trim();
-    const note = document.getElementById('custNote').value.trim();
-    const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
-    const orderDate = new Date().toLocaleString('id-ID');
+   // ===== ORDER FORM SUBMIT =====
+   document.getElementById('orderForm').addEventListener('submit', async function(e) {
+     e.preventDefault();
+     const btn = this.querySelector('button[type="submit"]');
+     const status = document.getElementById('formStatus');
+     
+     const data = {
+       name: document.getElementById('formName').value.trim(),
+       phone: document.getElementById('formPhone').value.trim(),
+       address: document.getElementById('formAddress').value.trim(),
+       note: document.getElementById('formNote').value.trim(),
+       items: cart.map(i => `${i.name} x${i.qty} (IDR ${i.price * i.qty})`),
+       total: cart.reduce((s, i) => s + i.price * i.qty, 0),
+       timestamp: new Date().toISOString()
+     };
 
-    // Build WA message
-    const items = cart.map(i => `  - ${i.name} x${i.qty} = IDR ${(i.price * i.qty).toLocaleString('id-ID')}`).join('\n');
-    const msg = `🍰 *PESANAN BARU - Sweet Treats by.JR*\n\n*Nama:* ${name}\n*No. WA:* ${phone}\n*Alamat:* ${address}\n${note ? `*Catatan:* ${note}\n` : ''}\n*Pesanan:*\n${items}\n\n*Total: IDR ${total.toLocaleString('id-ID')}*\n\n_Dipesan pada: ${orderDate}_`;
+     btn.disabled = true;
+     btn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Mengirim...';
+     status.className = 'text-center mt-4 text-sm';
+     status.textContent = '';
 
-    // Save to localStorage
-    const orders = JSON.parse(localStorage.getItem('jr_orders') || '[]');
-    orders.push({ id: Date.now(), name, phone, address, note, items: [...cart], total, date: orderDate, status: 'Baru' });
-    localStorage.setItem('jr_orders', JSON.stringify(orders));
+     try {
+       const response = await fetch(GOOGLE_SCRIPT_URL, {
+         method: 'POST',
+         mode: 'no-cors',
+         headers: { 'Content-Type': 'application/json' },
+         body: JSON.stringify(data)
+       });
+       
+       status.classList.remove('hidden');
+       status.classList.add('text-green-600');
+       status.textContent = '✅ Pesanan berhasil dikirim! Kami akan segera menghubungi Anda.';
+       this.reset();
+       cart = [];
+       saveCart();
+       syncOrderForm();
+     } catch (err) {
+       status.classList.remove('hidden');
+       status.classList.add('text-red-600');
+       status.textContent = '❌ Gagal mengirim pesanan. Silakan coba lagi atau hubungi WhatsApp.';
+     } finally {
+       btn.disabled = false;
+       btn.innerHTML = '<i class="fas fa-paper-plane text-lg"></i> Kirim Pesanan';
+       setTimeout(() => status.classList.add('hidden'), 5000);
+     }
+   });
 
-    // Clear cart
-    cart = [];
-    saveCart();
-    closeCheckout();
+   // ===== CHECKOUT & WHATSAPP =====
+   async function submitOrder(e) {
+     e.preventDefault();
+     if (cart.length === 0) { showToast('Keranjang masih kosong!'); return; }
 
-    // Open WhatsApp
-    window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
-    showToast('✅ Pesanan dikirim via WhatsApp!');
-  }
+     const name = document.getElementById('custName').value.trim();
+     const phone = document.getElementById('custPhone').value.trim();
+     const address = document.getElementById('custAddress').value.trim();
+     const note = document.getElementById('custNote').value.trim();
+     const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
+     const orderDate = new Date().toLocaleString('id-ID');
+
+     // Build WA message
+     const items = cart.map(i => `  - ${i.name} x${i.qty} = IDR ${(i.price * i.qty).toLocaleString('id-ID')}`).join('\n');
+     const msg = `🍰 *PESANAN BARU - Sweet Treats by.JR*\n\n*Nama:* ${name}\n*No. WA:* ${phone}\n*Alamat:* ${address}\n${note ? `*Catatan:* ${note}\n` : ''}\n*Pesanan:*\n${items}\n\n*Total: IDR ${total.toLocaleString('id-ID')}*\n\n_Dipesan pada: ${orderDate}_`;
+
+     // Save to localStorage
+     const orders = JSON.parse(localStorage.getItem('jr_orders') || '[]');
+     orders.push({ id: Date.now(), name, phone, address, note, items: [...cart], total, date: orderDate, status: 'Baru' });
+     localStorage.setItem('jr_orders', JSON.stringify(orders));
+
+     // Send to Google Sheets (fire and forget)
+     const sheetData = {
+       name, phone, address, note,
+       items: cart.map(i => `${i.name} x${i.qty} = IDR ${i.price * i.qty}`).join('; '),
+       total, timestamp: orderDate
+     };
+     fetch(GOOGLE_SCRIPT_URL, {
+       method: 'POST',
+       mode: 'no-cors',
+       headers: { 'Content-Type': 'application/json' },
+       body: JSON.stringify(sheetData)
+     }).catch(() => {});
+
+     // Clear cart
+     cart = [];
+     saveCart();
+     closeCheckout();
+
+     // Open WhatsApp
+     window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
+     showToast('✅ Pesanan dikirim via WhatsApp!');
+   }
 
   // ===== TOAST =====
   function showToast(msg) {
