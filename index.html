@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
-  <meta name="description" content="Roll cake lembut dengan berbagai rasa. Strawberry, coklat, matcha. Bisa order online untuk JABODETABEK. Sweet Treats by JR.">
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="description" content="Roll cake lembut dengan berbagai rasa. Strawberry, coklat, matcha. Bisa order online untuk JABODETABEK. Sweet Treats by JR.">
+   <meta name="theme-color" content="#fef7f0">
   <title>Roll Cake | Sweet Treats by JR</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -21,24 +22,32 @@
       }
     }
   </script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+   <link rel="apple-touch-icon" href="assets/favicon.png">
+   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon.png">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
   <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
   <link rel="alternate icon" type="image/png" sizes="32x32" href="/assets/favicon.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <style>
-    body { background-color: #fef7f0; }
-    body::before {
-      content: "";
-      position: fixed; inset: 0;
-      background-image: radial-gradient(#f7e3d4 1.5px, transparent 1.5px);
-      background-size: 32px 32px;
-      opacity: 0.4;
-      pointer-events: none;
-      z-index: -1;
-    }
-    .font-serif { font-family: 'Playfair Display', serif; }
-    .scrollbar-hide::-webkit-scrollbar { display: none; }
-  </style>
+   <style>
+     body { background-color: #fef7f0; }
+     body::before {
+       content: "";
+       position: fixed; inset: 0;
+       background-image: radial-gradient(#f7e3d4 1.5px, transparent 1.5px);
+       background-size: 32px 32px;
+       opacity: 0.4;
+       pointer-events: none;
+       z-index: -1;
+     }
+     .font-serif { font-family: 'Playfair Display', serif; }
+     .scrollbar-hide::-webkit-scrollbar { display: none; }
+     @supports (padding: max(0px)) {
+       body { padding-left: max(0px, env(safe-area-inset-left)); padding-right: max(0px, env(safe-area-inset-right)); }
+     }
+   </style>
 </head>
 <body class="font-sans text-[#3e2a2a]">
 
@@ -52,9 +61,9 @@
        <a href="#" onclick="scrollTop(event)" class="font-medium text-[#5f3c2c] hover:text-brand text-sm transition">Beranda</a>
        <a href="#rolls" onclick="smoothScroll(event,'rolls')" class="font-medium text-[#5f3c2c] hover:text-brand text-sm transition">Menu</a>
        <a href="#about" onclick="smoothScroll(event,'about')" class="font-medium text-[#5f3c2c] hover:text-brand text-sm transition">Cerita Kami</a>
-        <a href="https://wa.me/6281949376164?text=Halo%20JR%2C%20saya%20mau%20order%20roll%20cake" class="font-sans bg-brand hover:bg-brand-dark text-white font-semibold px-5 py-2 rounded-full transition shadow-md text-sm">Order via WA</a>
-        <a href="tel:6281949376164" class="text-xs text-[#b1866b] hover:text-brand ml-1" title="Telepon langsung">📞 0819-4937-6164</a>
-        <button onclick="openCart()" class="bg-brand hover:bg-brand-dark text-white text-sm font-semibold px-5 py-2 rounded-full transition shadow-md relative">
+       <a href="https://wa.me/6281949376164?text=Halo%20JR%2C%20saya%20mau%20order%20roll%20cake" class="font-sans bg-brand hover:bg-brand-dark text-white font-semibold px-6 py-3 rounded-full transition shadow-md text-base min-h-[44px] inline-flex items-center justify-center">Order via WA</a>
+       <a href="tel:6281949376164" class="text-sm text-[#b1866b] hover:text-brand ml-2 min-h-[44px] inline-flex items-center" title="Telepon langsung">📞 0819-4937-6164</a>
+        <button onclick="openCart()" class="bg-brand hover:bg-brand-dark text-white text-sm font-semibold px-5 py-3 rounded-full transition shadow-md relative min-h-[44px]">
          Keranjang <span id="cartBadge" class="hidden absolute -top-1.5 -right-1.5 bg-red-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">0</span>
        </button>
      </div>
@@ -75,12 +84,12 @@
         <div><div class="text-3xl font-bold text-brand">100%</div><div class="text-xs font-medium text-[#9c7b68]">Dipanggang Segar</div></div>
       </div>
       <div class="flex gap-4 flex-wrap">
-        <button onclick="smoothScroll(event,'rolls')" class="bg-brand hover:bg-brand-dark text-white font-semibold px-8 py-3.5 rounded-full transition shadow-lg">
-          <i class="fas fa-shopping-bag mr-2"></i>Pesan Sekarang
-        </button>
-        <button onclick="smoothScroll(event,'rolls')" class="border border-brand text-brand hover:bg-brand-light font-semibold px-7 py-3 rounded-full transition">
-          Lihat Menu →
-        </button>
+         <button onclick="smoothScroll(event,'rolls')" class="bg-brand hover:bg-brand-dark text-white font-semibold px-6 py-3 rounded-full transition shadow-lg min-h-[44px]">
+           <i class="fas fa-shopping-bag mr-2"></i>Pesan Sekarang
+         </button>
+         <button onclick="smoothScroll(event,'rolls')" class="border border-brand text-brand hover:bg-brand-light font-semibold px-6 py-3 rounded-full transition min-h-[44px]">
+           Lihat Menu →
+         </button>
       </div>
     </div>
     <div class="flex-1 flex justify-center min-w-[260px]">
@@ -106,7 +115,7 @@
         <div class="font-serif text-xl font-semibold text-[#4a2a1e] mb-2">Strawberry Dream</div>
         <div class="text-xs text-[#9f7c68] mb-4">Stroberi segar & krim kocok, sponge super lembut.</div>
         <div class="text-xl font-bold text-brand mb-4">IDR 50.000</div>
-        <button onclick="addToCart('Strawberry Dream', 45000)" class="bg-brand-light hover:bg-brand hover:text-white text-brand font-semibold px-6 py-2 rounded-full transition text-sm">Pesan →</button>
+         <button onclick="addToCart('Strawberry Dream', 45000)" class="bg-brand-light hover:bg-brand hover:text-white text-brand font-semibold px-6 py-3 rounded-full transition text-sm min-h-[44px]">Pesan →</button>
       </div>
 
       <!-- Dark Chocolate Truffle -->
@@ -115,7 +124,7 @@
         <div class="font-serif text-xl font-semibold text-[#4a2a1e] mb-2">Dark Chocolate Truffle</div>
         <div class="text-xs text-[#9f7c68] mb-4">Ganache cokelat Belgia kaya, sponge kakao gelap.</div>
         <div class="text-xl font-bold text-brand mb-4">IDR 48.000</div>
-        <button onclick="addToCart('Dark Chocolate Truffle', 48000)" class="bg-brand-light hover:bg-brand hover:text-white text-brand font-semibold px-6 py-2 rounded-full transition text-sm">Pesan →</button>
+         <button onclick="addToCart('Dark Chocolate Truffle', 48000)" class="bg-brand-light hover:bg-brand hover:text-white text-brand font-semibold px-6 py-3 rounded-full transition text-sm min-h-[44px]">Pesan →</button>
       </div>
 
       <!-- Matcha Azuki -->
@@ -124,7 +133,7 @@
         <div class="font-serif text-xl font-semibold text-[#4a2a1e] mb-2">Matcha Azuki</div>
         <div class="text-xs text-[#9f7c68] mb-4">Krim matcha premium + kacang merah manis & mochi.</div>
         <div class="text-xl font-bold text-brand mb-4">IDR 47.000</div>
-        <button onclick="addToCart('Matcha Azuki', 47000)" class="bg-brand-light hover:bg-brand hover:text-white text-brand font-semibold px-6 py-2 rounded-full transition text-sm">Pesan →</button>
+         <button onclick="addToCart('Matcha Azuki', 47000)" class="bg-brand-light hover:bg-brand hover:text-white text-brand font-semibold px-6 py-3 rounded-full transition text-sm min-h-[44px]">Pesan →</button>
       </div>
 
       <!-- Mango Passion -->
@@ -133,7 +142,7 @@
         <div class="font-serif text-xl font-semibold text-[#4a2a1e] mb-2">Mango Passion</div>
         <div class="text-xs text-[#9f7c68] mb-4">Mousse mangga tropis & glasir markisa.</div>
         <div class="text-xl font-bold text-brand mb-4">IDR 46.000</div>
-        <button onclick="addToCart('Mango Passion', 46000)" class="bg-brand-light hover:bg-brand hover:text-white text-brand font-semibold px-6 py-2 rounded-full transition text-sm">Pesan →</button>
+         <button onclick="addToCart('Mango Passion', 46000)" class="bg-brand-light hover:bg-brand hover:text-white text-brand font-semibold px-6 py-3 rounded-full transition text-sm min-h-[44px]">Pesan →</button>
       </div>
 
     </div>
